@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as json from '../../data/front-page.json';
 import Post from './Post'
 import IPost from './Post'
 
