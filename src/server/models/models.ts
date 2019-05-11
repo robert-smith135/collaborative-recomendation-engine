@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import { prop, Typegoose, ModelType, InstanceType, Ref } from 'typegoose';
 
-class Movie extends Typegoose {
+export class Movie extends Typegoose {
     @prop()
     _id: number;
 
@@ -75,7 +75,7 @@ class Movie extends Typegoose {
     western?: boolean;
 }
 
-class User extends Typegoose {
+export class User extends Typegoose {
     @prop()
     _id?: number;
 
@@ -92,7 +92,7 @@ class User extends Typegoose {
     zipcode?: string;
 }
   
-class Rating extends Typegoose {
+export class Rating extends Typegoose {
     @prop({ ref: User })
     user?: Ref<User>;
 
@@ -109,12 +109,9 @@ class Rating extends Typegoose {
     timestamp?: string;
 }
   
-const ratingModel = new Rating().getModelForClass(Rating);
-const movieModel = new Movie().getModelForClass(Movie);
-const userModel = new User().getModelForClass(User);
-
-export {
-    ratingModel,
-    movieModel,
-    userModel
-};
+export const ratingModel = new Rating().getModelForClass(Rating);
+export const MovieModel = new Movie().getModelForClass(Movie);
+export const UserModel = new User().getModelForClass(User, {
+    existingMongoose: mongoose,    
+    schemaOptions: {collection: 'users'}
+})

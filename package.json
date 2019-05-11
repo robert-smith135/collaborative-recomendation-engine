@@ -4,7 +4,7 @@
   "description": "A knn based recomendation engine ",
   "main": "index.js",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "node ./dist/src/server/server.js",
     "build": "npm run buildserver && npm run buildclient",
     "buildserver": "tsc --p tsconfig.server.json",
     "buildclient": "webpack",

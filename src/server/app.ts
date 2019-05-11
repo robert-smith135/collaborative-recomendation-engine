@@ -1,11 +1,12 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 var path = require("path");
-
+const mongoose = require('mongoose');
 
 // import { PostRoute } from "./routes/PostRoute";
 import { UserRoute } from "./routes/UserRoute";
 import { BaseRoute } from "./routes/BaseRoute";
+import { MovieRoute } from "./routes/MovieRoute";
 // import { SignupRoute } from "./routes/SignupRoute";
 // import { AuthRoute } from "./routes/AuthRoute";
 
@@ -27,6 +28,9 @@ export class App {
 
 	private connectDatabase(): void {
 		console.log('Connecting to database...');
+		mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true}, () => {
+			console.log('Conected to mongoDb');
+		});
 	}
 
 	private registerMiddleware(): void {
@@ -46,10 +50,10 @@ export class App {
 	}
 
 	private registerRoutes(): void {
-		console.log('thing is ', path.resolve(__dirname, '../public'));
 		this.express.use(express.static(path.resolve(__dirname, '../public')))
 		this.express.use("/", new BaseRoute().registerRoute());
 		this.express.use("/users", new UserRoute().registerRoute());
+		this.express.use("/movies", new MovieRoute().registerRoute());
 	}
 
 	private registerErrorHandlers(): void {

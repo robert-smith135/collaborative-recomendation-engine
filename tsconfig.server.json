@@ -7,10 +7,11 @@
         "resolveJsonModule": true,
         "target": "es5",
         "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "include": [
-        "./src/server/**/*", "server.ts"
+        "./src/server", "server.ts"
     ],
     "exclude": [
         "node_modules",

@@ -1,31 +1,31 @@
 
 import * as express from 'express';
-import * as rawUserData from '../../../parsed-data/users.json';
+import * as rawMovieData from '../../../parsed-data/movies.json';
 import { User, UserModel } from '../models/models';
-import UserRepository from '../repositories/UserRepository';
+import MovieRepository from '../repositories/MovieRepository';
 
 // import User from '../models/user.js';
-export class UserRoute {
+export class MovieRoute {
 
     private userModel: User
-    private userRepository: UserRepository;
+    private movieRepository: MovieRepository;
 
     constructor() {
-        this.userRepository = new UserRepository();
+        this.movieRepository = new MovieRepository();
     }
 
     private router = express.Router();
 
     public registerRoute(): express.Router {
         this.router.get('/seed', (req, res, next) => {
-            rawUserData.forEach((thing: any) => {
-                this.userRepository.createUser(thing).then();
+            rawMovieData.forEach((thing: any) => {
+                this.movieRepository.createMovie(thing)
             })
             next();
         });
 
         this.router.get('/', async (req, res, next) => {
-            res.json(await this.userRepository.getUsers())
+            res.json(await this.movieRepository.getMovies())
             next()
         });
 
