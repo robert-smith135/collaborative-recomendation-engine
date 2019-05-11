@@ -4,15 +4,22 @@
   "description": "A knn based recomendation engine ",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "start": "node ./dist/server.js",
+    "build": "npm run buildserver && npm run buildclient",
+    "buildserver": "tsc --p tsconfig.server.json",
+    "buildclient": "webpack",
+    "watch": "tsc --watch"
   },
   "dependencies": {
     "@bbc/news-web-components": "2.9.1",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.7",
+    "papaparse": "^4.6.3",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
-    "sequelize-typescript": "^0.6.10"
+    "typegoose": "^5.6.0"
   },
   "repository": {
     "type": "git",
