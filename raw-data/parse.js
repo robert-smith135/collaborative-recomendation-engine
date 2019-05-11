@@ -14,11 +14,11 @@ let parsed = Papa.parse(userData.toString(), {
 
 let cleaned = parsed.data.map((item) => {
     return { 
-        _id: parseInt(item.id),
+        _id: parseInt(item._id),
         age: parseInt(item.age),
-        sex: 'F',
-        occupation: 'artist',
-        zipcode: '75206'
+        sex: item.sex,
+        occupation: item.occupation,
+        zipcode: item.zipcode
     }
 });
 

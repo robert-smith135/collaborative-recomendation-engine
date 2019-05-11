@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 import { UserRoute } from "./routes/UserRoute";
 import { BaseRoute } from "./routes/BaseRoute";
 import { MovieRoute } from "./routes/MovieRoute";
+import { RatingRoute } from "./routes/RatingRoute";
 // import { SignupRoute } from "./routes/SignupRoute";
 // import { AuthRoute } from "./routes/AuthRoute";
 
@@ -54,6 +55,7 @@ export class App {
 		this.express.use("/", new BaseRoute().registerRoute());
 		this.express.use("/users", new UserRoute().registerRoute());
 		this.express.use("/movies", new MovieRoute().registerRoute());
+		this.express.use("/ratings", new RatingRoute().registerRoute());
 	}
 
 	private registerErrorHandlers(): void {

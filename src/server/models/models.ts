@@ -6,7 +6,7 @@ export class Movie extends Typegoose {
     _id: number;
 
     @prop()
-    ovie_title?: number;
+    movie_title?: string;
 
     @prop()
     release_date?: string;
@@ -21,58 +21,58 @@ export class Movie extends Typegoose {
     unknown?: boolean;
 
     @prop()
-    action?: boolean;
+    Action?: boolean;
 
     @prop()
-    adventure?: boolean;
+    Adventure?: boolean;
 
     @prop()
-    animation?: boolean;
+    Animation?: boolean;
 
     @prop()
-    childrens?: boolean;
+    Childrens?: boolean;
 
     @prop()
-    comedy?: boolean;
+    Comedy?: boolean;
 
     @prop()
-    crime?: boolean;
+    Crime?: boolean;
 
     @prop()
-    documentary?: boolean;
+    Documentary?: boolean;
 
     @prop()
-    drama?: boolean;
+    Drama?: boolean;
 
     @prop()
-    fantasy?: boolean;
+    Dantasy?: boolean;
 
     @prop()
-    film_noir?: boolean;
+    Film_noir?: boolean;
 
     @prop()
-    horror?: boolean;
+    Horror?: boolean;
 
     @prop()
-    musical?: boolean;
+    Musical?: boolean;
 
     @prop()
-    mystery?: boolean;
+    Mystery?: boolean;
 
     @prop()
-    romance?: boolean;
+    Romance?: boolean;
 
     @prop()
-    sci_Fi?: boolean;
+    Sci_Fi?: boolean;
 
     @prop()
-    thriller?: boolean;
+    Thriller?: boolean;
 
     @prop()
-    war?: boolean;
+    War?: boolean;
 
     @prop()
-    western?: boolean;
+    Western?: boolean;
 }
 
 export class User extends Typegoose {
@@ -93,24 +93,27 @@ export class User extends Typegoose {
 }
   
 export class Rating extends Typegoose {
-    @prop({ ref: User })
-    user?: Ref<User>;
+    @prop({ ref: User, required: true })
+    user_id: Ref<User>;
+
+    @prop({ ref: Movie, required: true })
+    item_id: Ref<Movie>;
 
     @prop()
-    item_id?: number;
-
-    @prop({ ref: Movie })
-    movie?: Ref<Movie>;
-
-    @prop()
-    rating?: number;
+    rating: number;
 
     @prop()
     timestamp?: string;
 }
   
-export const ratingModel = new Rating().getModelForClass(Rating);
-export const MovieModel = new Movie().getModelForClass(Movie);
+export const RatingModel = new Rating().getModelForClass(Rating, {
+    existingMongoose: mongoose,    
+    schemaOptions: {collection: 'ratings'}
+});
+export const MovieModel = new Movie().getModelForClass(Movie, {
+    existingMongoose: mongoose,    
+    schemaOptions: {collection: 'movies'}
+});
 export const UserModel = new User().getModelForClass(User, {
     existingMongoose: mongoose,    
     schemaOptions: {collection: 'users'}
