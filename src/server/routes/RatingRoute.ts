@@ -30,6 +30,21 @@ export class RatingRoute {
             res.json(await this.ratingRepository.getRatings())
         });
 
+        this.router.get('/user-ratings/:id', async (req, res, next) => {
+            let ratings = await this.ratingRepository.getRatings()
+            res.json(ratings.filter((item) => {
+                if(item.user_id && item.user_id._id){
+                    return item.user_id._id == req.params.id;
+                }
+                return false
+            }).map((item) => {
+                return {
+                    title: item.item_id.movie_title,
+                    rating: item.rating
+                }
+            }))
+        });
+
         return this.router;
     }
 }

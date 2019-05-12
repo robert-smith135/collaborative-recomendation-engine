@@ -7,7 +7,7 @@ export default class RatingsRepository {
     }
 
     public async getRatings(): Promise<Rating[]> {
-        return RatingModel.find({}).populate('user_id');
+        return RatingModel.find({}).populate('user_id').populate('item_id');
     }
 
     public async createRating(rating: Rating) {
