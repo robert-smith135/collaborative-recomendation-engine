@@ -51,7 +51,7 @@ export class App {
 	}
 
 	private registerRoutes(): void {
-		this.express.use(express.static(path.resolve(__dirname, '../public')))
+		this.express.use(express.static(path.resolve(__dirname, '../../../public')))
 		this.express.use("/", new BaseRoute().registerRoute());
 		this.express.use("/users", new UserRoute().registerRoute());
 		this.express.use("/movies", new MovieRoute().registerRoute());

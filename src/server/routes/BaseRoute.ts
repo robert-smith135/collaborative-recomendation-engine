@@ -8,7 +8,7 @@ export class BaseRoute {
 
     public registerRoute(): express.Router {
         return this.router.get('/', (req, res, next) => {
-            res.sendFile(path.resolve(__dirname, '../../public/index.html'));
+            res.sendFile(path.resolve(__dirname, '../../../../public/index.html'));
         });
     }
 }

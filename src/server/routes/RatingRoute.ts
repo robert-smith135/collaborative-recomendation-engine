@@ -1,7 +1,6 @@
 
 import * as express from 'express';
 import * as rawRatingData from '../../../parsed-data/ratings.json';
-import { Rating, RatingModel } from '../models/models';
 import RatingRepository from '../repositories/RatingsRepository';
 
 // import User from '../models/user.js';

@@ -8,7 +8,6 @@ export default class Post extends React.Component<any, any>  {
 
     }
 
-
     render() {
         return (
             <h3>post</h3>
