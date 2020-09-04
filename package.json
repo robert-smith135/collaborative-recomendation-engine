@@ -17,7 +17,7 @@
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "mongoose": "^5.5.7",
-    "papaparse": "^4.6.3",
+    "papaparse": "^5.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-rating": "^1.7.2",
