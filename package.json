@@ -14,7 +14,7 @@
     "@bbc/news-web-components": "2.9.1",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "express": "^4.16.4",
     "mongoose": "^5.5.7",
     "papaparse": "^4.6.3",
