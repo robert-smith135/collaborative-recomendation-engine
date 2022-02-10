@@ -36,7 +36,7 @@
   "homepage": "https://github.com/robert-smith135/collaborative-recomendation-engine#readme",
   "devDependencies": {
     "@types/webpack-env": "^1.13.9",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.1.0",
     "ts-loader": "^6.0.0",
     "typescript": "^3.4.5",
